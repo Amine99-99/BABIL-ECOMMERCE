@@ -1,0 +1,42 @@
+.cart-panel{
+    position:fixed;
+    top:0;
+    right:-400px;
+    width:400px;
+    height:60%;
+    background:grey;
+    box-shadow :-2px 0 5px rgb(0,0,0,0.5);
+    transition: right 0.3s ease;
+    z-index: 1000;
+      border:1px solid black;
+      border-radius:5px;
+  }
+  .cart-panel.visible {
+      right:0; 
+  }
+  .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgb(0,0,0,0.5);
+      display:none; 
+      z-index: 999;
+  }
+  .overlay.visible {
+      display: block; 
+  }
+  .close-btn {
+      background-color: red;
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      border-radius:5px;
+  }
+  .close-btn:hover {
+      background-color: darkred;
+  }
+
+  

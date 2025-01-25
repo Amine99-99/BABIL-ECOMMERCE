@@ -1,0 +1,16 @@
+.my-profile{
+    border:1px solid grey;
+    height:200px;
+}
+.side{
+    width : 20%;
+    border:1px solid grey;
+}
+.my{
+    width:75%;
+    border:1px solid grey;
+    position:absolute;
+    left:25%;
+    top:5px;
+    height:100%;
+}

@@ -1,0 +1,302 @@
+@import '@fortawesome/fontawesome-free/css/all.min.css';
+
+
+html,body{
+  margin:0;
+  padding:0;
+  height:100%;
+  overflow-x:hidden;
+}
+* {
+  box-sizing: border-box;
+}
+
+
+.app-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Added missing semicolon */
+  width: 100vw;
+  background-color:black;
+}
+
+.container {
+  display: flex;
+  flex: 1;
+  height: calc(100vh - 8vh); 
+  background-color:#DCDCDC; 
+  width: 100%; 
+  position: relative;
+}
+
+.sidebar {
+
+  flex-direction: column;  
+
+  width: 15vw;  
+  background-color: white;
+  padding: 10px;
+  position:relative;
+  left:2%;
+  border:1px solid transparent;
+  border-radius:5px;
+
+  height: calc(100vh - 60px);
+  margin-top:5px;
+  box-shadow: -1px 1px 1px 1px rgba(0, 0, 0, 0.7)
+}
+
+.main-content {
+  width: 75vw; 
+  padding: 20px;
+  background-color: white;;
+  position:relative;
+  left:3%;
+  margin-top:5px;
+  border:1px solid transparent;
+  border-radius:5px;
+
+
+}
+
+.list {
+  list-style-type: none; 
+  
+}
+.list li{
+  margin-bottom:50px;
+}
+
+.home-header{
+
+  display:flex;
+  background-color:#DC143C;
+
+  justify-content:space-between;
+  align-items:center;
+  padding: 10px 20px;
+  position:relative;
+  overflow:visible;
+  height: 8vh;
+  width:100%;
+
+}
+.nav{
+  position:relative;
+  margin-right:40px;
+  flex: 0 0 10% ;
+  border:1px solid transparent;
+  padding:20px;
+
+
+}
+.logo {
+  flex: 0 0 10%;
+  border:1px solid transparent;
+  padding :20px ;
+
+}
+
+.search {
+
+  border : 1px solid transparent;
+}
+
+.cart {
+
+  border:1px solid transparent;
+  padding :20px ;
+  background-color:#DC143C;
+  color:white;
+  font-weight:bold;
+}
+fas.fa-cart {
+  font-size: 24px;      
+  color: #333;            
+  margin-right: 10px;        
+}
+
+
+
+
+.sign-in{
+  background-color:#DC143C;
+  font-weight:bold;
+  border:none;
+}
+.sign-in:hover{
+  background-color:#333;
+}
+.drop-down{
+  display:none;
+
+  flex-direction:Column;
+  position:fixed;
+  z-index:1000;
+  margin:auto -30px ;
+  width:16vw;
+
+
+
+
+}
+  .sign-in:hover + .drop-down {
+
+  display:flex;
+
+
+
+}
+.nav:hover .drop-down{
+  display:flex;
+}
+.btn{
+  background-color:black;
+  border:none;
+}
+.link {
+  color:white;
+  text-decoration:none;
+}
+.head{
+  width:10px;
+  height:10px;
+  background-color:white;
+  border-radius:5px;
+
+}
+.bod{
+  width:20px;
+  height:7px;
+  background-color:white;
+  border-radius:25px 25px 0 0 ;
+}
+.profile{
+  display:flex;
+  flex-direction:Column;
+  justify-content:center;
+  align-items:center;
+
+}
+.x{
+  display:flex;
+
+  justify-content:space-between;
+  align-items:center;
+  gap:2px;
+}
+.search-1{
+  width:600px;
+  border: none;
+  outline: none;
+  height: 2.5rem; 
+  padding: 0.5rem;
+  border-radius:2px;
+}
+.trending,.cat{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+.product{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  
+  margin-right:10px;
+  
+  width:150px;
+  height:400px;
+  border:1px solid transparent;
+  font-size:8px;
+  color:grey;
+  box-shadow:-1px 1px 1px -1px 1px rgb(0,0,0,0.5);
+  border-radius:5px;
+}
+.product:hover{
+  box-shadow:-1px 1px 1px  1px rgb(0,0,0,0.5);
+  
+}
+.next {
+  height:18px;
+  margin-top:150px;
+
+
+}
+.trade{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  
+  width:100%;
+  margin : auto;
+  background:white;
+  margin-bottom:10px;
+  
+  border:1px solid transparent;
+  border-radius:5px;
+  
+}
+.btn-trade,.btn-offer,.offer{
+  background-color:white;
+  color:grey;;
+  
+
+  
+  
+  text-decoration:none;
+}
+.b{
+  display:flex;
+  color:grey;;
+  text-decoration:none;
+  width:100%;
+  background-color:white;
+  align-items:center;
+  
+
+  
+
+}
+.image{
+  width:150px;
+  height:150px;
+
+  background-color:white;
+  
+  
+}
+.image_1{
+  width:400px;
+  height:400px;
+
+  background-color:white;
+  
+
+}
+.detail{
+  display:flex;
+  flex-wrap:wrap;
+  gap:30px;
+  
+}
+.e{
+   border-right:1px solid grey;;
+    border-radius:5px;
+    padding:20px;
+    margin-bottom:20px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    width:500px;
+    height:600px;
+}
+.d{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
