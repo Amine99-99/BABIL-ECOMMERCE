@@ -35,6 +35,7 @@ const Result = () => {
   }, [store_2, searchTerm]);
 
   return (
+    <div className='main-content'>
     <div className='cat'>
       {result.length > 0 ? (
         result.map((item) => (<div>
@@ -56,6 +57,7 @@ const Result = () => {
       ) : (
         <p>No results found</p>
       )}
+    </div>
     </div>
   );
 };

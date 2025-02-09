@@ -14,7 +14,7 @@ const Logout=()=>{
     return(
         <div>
             
-            <button onClick={()=>{handleLogout();navigate('/trending')}}>Log out</button>
+            <button style={{backgroundColor:'red', border:'none',padding:5}} onClick={()=>{handleLogout();navigate('/')}}>Log out</button>
         </div>
     )
 }

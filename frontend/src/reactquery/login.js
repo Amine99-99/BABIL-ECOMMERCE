@@ -58,7 +58,8 @@ const Login = () => {
   };
 
   return (
-    <div >
+    <div className='main-content' >
+      <div className='form-login'>
       <h2>Login</h2>
       {success && <p>{typeof success === 'string' ? success : JSON.stringify(success)}</p>}
       {error && <p>{typeof error==='string' ? error:JSON.stringify(error)}</p>}
@@ -66,24 +67,31 @@ const Login = () => {
    
     
 
-      <form onSubmit={handleSubmit}>
+      <form className='login' onSubmit={handleSubmit}>
+        <div className='input-login'>
         <label htmlFor="email">Email:</label>
         <input
           type="email"
           id="email"
           value={form.email}
           onChange={handleChange}
+          className='control-log'
         />
+        </div>
+        <div className='input-login'>
         <label htmlFor="password">Password:</label>
         <input
           type="password"
           id="password"
           value={form.password}
           onChange={handleChange}
+          className='control-log'
         />
-        <button type="submit">Login</button>
+        </div>
+        <button className='btn-log' type="submit">Login</button>
       </form>
-       <Link to='/register'>Register</Link>
+       <Link style={{textDecoration:'none',marginTop:'-35px'}} to='/register'>Register</Link>
+       </div>
     </div>
   );
 };

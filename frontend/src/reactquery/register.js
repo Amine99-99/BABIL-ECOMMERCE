@@ -1,13 +1,18 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import '../App.css'
 
 const Register = () => {
-  const [form, setForm] = useState({
-    name: '',
-    email: '',
-    password: '',
-    confirm_password: ''
-  });
+  const [form,setForm] =useState({
+    username:'',
+    email:'',
+    password:'',
+    confirm_password:'',
+    address:'',
+    postal_code:'',
+    phone:''
+})
+ 
   
   const [error, setError] = useState(null);
   const [success,setSuccess] =useState(null)
@@ -79,7 +84,10 @@ const Register = () => {
       name: '',
       email: '',
       password: '',
-      confirm_password: ''
+      confirm_password: '',
+      address:'',
+      postal_code:'',
+      phone:''
     });
   };
 
@@ -126,41 +134,99 @@ const Register = () => {
   
 
   return (
-    <div>
+    <div className='main-content' >
       
      {success && <p>{typeof success === 'string' ? success : JSON.stringify(success)}</p>}
       {error && <p>{typeof error==='string' ? error:JSON.stringify(error)}</p>}
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          id="name"
-          value={form.name}
-          onChange={handleChange}
-          placeholder="Name"
-        />
-        <input
-          type="email"
-          id="email"
-          value={form.email}
-          onChange={handleChange}
-          placeholder="Email"
-        />
-        <input
-          type="password"
-          id="password"
-          value={form.password}
-          onChange={handleChange}
-          placeholder="Password"
-        />
-        <input
-          type="password"
-          id="confirm_password"
-          value={form.confirm_password}
-          onChange={handleChange}
-          placeholder="Confirm Password"
-        />
-        <button type="submit">Register</button>
-      </form>
+      <div className='form-register'>
+        <h2>Sign up</h2>
+      <form className='register' onSubmit={handleSubmit}>
+    <div className='group'>
+    <label htmlFor='name'>Username</label>
+    <input
+      type="text"
+      id="name"
+      value={form.name}
+      onChange={handleChange}
+      placeholder="Name"
+      className='control'
+    />
+  </div>
+
+  <div className='group'>
+    <label htmlFor='email'>Email</label>
+    <input
+      type="email"
+      id="email"
+      value={form.email}
+      onChange={handleChange}
+      placeholder="Email"
+      className='control'
+    />
+  </div>
+
+  <div className='group'>
+    <label htmlFor='password'>Password</label>
+    <input
+      type="password"
+      id="password"
+      value={form.password}
+      onChange={handleChange}
+      placeholder="Password"
+      className='control'
+    />
+  </div>
+
+  <div className='group'>
+    <label htmlFor='confirm_password'>Confirm Password</label>
+    <input
+      type="password"
+      id="confirm_password"
+      value={form.confirm_password}
+      onChange={handleChange}
+      placeholder="Confirm Password"
+      className='control'
+    />
+  </div>
+
+  <div className='group'>
+    <label htmlFor='address'>Address</label>
+    <input
+      type='text'
+      id='address'
+      onChange={handleChange}
+      value={form.address}
+      className='control'
+    />
+  </div>
+
+  <div className='group'>
+    <label htmlFor='code'>Post Code</label>
+    <input
+      type='number'
+      id='code'
+      onChange={handleChange}
+      value={form.postal_code}
+      className='control'
+    />
+  </div>
+
+  <div className='group'>
+    <label htmlFor='phone'>Phone Number</label>
+    <input
+      type='tel'
+      id='phone'
+      onChange={handleChange}
+      value={form.phone}
+      className='control'
+    />
+  </div>
+
+  <button type="submit" className='btn-reg'>Register</button>
+</form>
+
+      
+      </div>
     </div>
   );
 };

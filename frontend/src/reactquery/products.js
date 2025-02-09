@@ -10,20 +10,32 @@ const Products = () => {
   if (!catData.length) return <div>No items</div>;
 
   return (
+    <div className='main-content'>
     <div className='cat'>
       {catData.map((product) => (
-        <Link style={{textDecoration:'none'}} to={`/${product.category}/${product.fob}`} key={product.fob}>
-          <div className='product'>
+       
+          <div key={product.id}>
+             <Link style={{textDecoration:'none'}} to={`/product/${product.category}/${product.fob}`} key={product.fob}>
+             <div className='product'>
           <img src={product.image} alt={product.name} className='image'  />
-          <div style={{fontSize:10}} >
+          
             <p>{product.title}</p>
             <p>Price:${product.price}</p>
             <p >In Stock:{product.quantity}</p>
             </div>
+           
             
+            </Link>
+            
+       
+            <button style={{backgroundColor:'black',color:'white',width:200,padding:10,margin:5,marginLeft:30,borderRadius:5}}>Add to the cart</button>
           </div>
-        </Link>
+         
+           
+        
       ))}
+
+    </div>
     </div>
   );
 };

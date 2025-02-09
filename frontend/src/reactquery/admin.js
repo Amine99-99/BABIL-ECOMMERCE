@@ -40,9 +40,9 @@ const Admin=()=>{
     if(!isAdmin) return <div>Access denied</div>
    
     return (
-        <div>
+        <div className='admin'>
             {success && <p>{typeof success === 'string' ? success : JSON.stringify(success)}</p>}
-            <p>Welcome to admin page</p>
+            <p>Admin Managment</p>
             <Bell/>
           
         </div>

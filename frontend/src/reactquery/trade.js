@@ -1,7 +1,8 @@
-import React, { useState, useContext ,useEffect } from 'react';
-import { AddContext,OfferContext } from '../context.js';
-import {Link} from 'react-router-dom'
+import React, { useState ,useEffect } from 'react';
+
+
 import '../trade.css'
+
 
 
 const UploadFile = () => {
@@ -13,7 +14,7 @@ const UploadFile = () => {
   const [previews, setPreviews] = useState([]);
   const [error, setError] = useState(null);
   const [success,setSuccess] =useState(null)
-  const { addPro } = useContext(AddContext);
+ 
 
   const handleSelected = (e) => {
     const selectedFiles = Array.from(e.target.files);
@@ -34,14 +35,13 @@ const UploadFile = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const newProduct = {
-      user: user,
-      name: name,
-      price: price, 
-      quantity: quantity,
-      files: previews,
-    };
-    addPro(newProduct);
+    const formData = new FormData()
+    formData.append('user',user)
+    formData.append('name',name)
+    formData.append('price',price)
+    formData.append('quantity',quantity)
+    files.forEach((file)=>formData.append('image',file))
+    
     
     setUser('');
     setName('');
@@ -52,18 +52,7 @@ const UploadFile = () => {
     try{
       const response = await fetch('/offers',{
         method:'POST',
-        headers:{
-          'Content-Type':'application/json'
-        },
-        body:JSON.stringify({
-          name:name,
-          price:price,
-          quantity:quantity,
-          image:previews
-
-
-
-       } )
+        body:formData
       })
       const result = await response.json()
       if(response.ok){
@@ -89,7 +78,7 @@ const UploadFile = () => {
             type='text' 
             onChange={(e) => setUser(e.target.value)} 
             value={user} 
-            required 
+            required className='upload'
           />
         </div>
         <div>
@@ -99,7 +88,7 @@ const UploadFile = () => {
             type='text' 
             onChange={(e) => setName(e.target.value)} 
             value={name} 
-            required 
+            required className='upload'
           />
         </div>
         <div>
@@ -109,7 +98,7 @@ const UploadFile = () => {
             type='number' 
             onChange={(e) => setPrice(e.target.value)} 
             value={price} 
-            required 
+            required className='upload'
           />
         </div>
         <div>
@@ -119,7 +108,7 @@ const UploadFile = () => {
             type='number' 
             onChange={(e) => setQuantity(e.target.value)} 
             value={quantity} 
-            required 
+            required  className='upload'
           />
         </div>
         <div>
@@ -131,7 +120,7 @@ const UploadFile = () => {
             onChange={handleSelected} 
             accept='image/*' 
             multiple 
-            required 
+            required className='upload'
           />}
         </div>
         <button className='upload-btn' type='submit' >Add Product</button>
@@ -151,31 +140,6 @@ const UploadFile = () => {
   );
 };
 
-const Uploaded = () => {
-  const { products,setProducts } = useContext(AddContext);
-  const { addOffer } = useContext(OfferContext);
-
-  const postItem = (product) => {
-    addOffer(product);
-    setProducts([])
-  };
-
-  return (
-    <div className='uploaded-product'>
-      
-      {products.map((product, index) => (
-        <div className='product-card' key={index}>
-          <h1>{product.name}</h1>
-          <h2>${product.price}</h2>
-          {product.files.map((imgSrc, idx) => (
-            <img key={idx} src={imgSrc} alt={`Preview-${idx}`} style={{ width: 200, height: 200 }} />
-          ))}
-          <button className='post-btn' onClick={() => postItem(product)}>Post</button>
-        </div>
-      ))}
-    </div>
-  );
-};
 const Trade=()=>{
   const [isVendor,setIsVendor]=useState(false)
   useEffect(()=>{
@@ -188,7 +152,7 @@ const Trade=()=>{
 
 
     })
-      const data = await response .json()
+      
       if(response.ok){
         setIsVendor(true)
       }else{
@@ -201,12 +165,14 @@ const Trade=()=>{
   
 
   return(
+    <div className='main-content'>
     <div className='trade-container'>
       
       <UploadFile/>
-      <Uploaded/>
+    
       
-      <Link className='offer' to='/offer'> Offer Page</Link>
+      
+    </div>
     </div>
   )
 }

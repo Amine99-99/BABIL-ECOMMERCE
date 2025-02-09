@@ -32,13 +32,13 @@
   }
   .upload-btn{
     width:150px;
-    padding:20px;
+    padding:1px;
     background-color:black;
     color:white;
 
   }
   .upload-btn:hover{
-    background-color:#FFD700;
+    background-color: hsl(120, 100%, 50%, 0.2);
     color:black;
 
   }
@@ -60,14 +60,26 @@
     background-color: black; 
     color: white;
     border: none;
-    padding: 10px;
+    padding: 1px;
     cursor: pointer;
     
   }
   
   .post-btn:hover {
-    background-color:#FFD700;
+    background-color: hsl(120, 100%, 50%, 0.2);
     color:black;
   
   }
-  
+  .upload{
+    width:200px;
+    border-radius:6px;
+    background: rgb(0,0,150);
+    background-color: hsl(120, 100%, 50%, 0.2)
+   
+
+  }
+  .offer:{
+    display:flex;
+    flex-wrap:wrap;
+    background:radial-gradient(circle,rgba(192, 192, 192, 0.8) 40%, rgba(192, 192, 192, 0.3) 80% , rgba(192, 192, 192, 0) 100%);
+  }

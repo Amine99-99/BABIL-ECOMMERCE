@@ -1,4 +1,5 @@
 import React ,{useState} from 'react'
+import {Link} from 'react-router-dom'
 
 const Request=()=>{
     const [form,setForm]=useState({
@@ -39,18 +40,23 @@ const Request=()=>{
         }
     }
     return(
-        <div>
-            {success && <p>{typeof success === 'string' ? success : JSON.stringify(success)}</p>}
-            {error && <p>{typeof error==='string' ? error:JSON.stringify(error)}</p>}
+        <div className='main-content'>
+        <div className='req-pg'>
+            
             <form method='POST' onSubmit={handleSubmit}>
                 
-                <div>
+                <div className='req'>
                     <label>Role request</label>
                     <input type='text' id='requested_role' palceholder='your new role' onChange={handleChange} value={form.requested_role}/>
+                    <button className='btn-req' type='submit'>Request</button>
                 </div>
-                <button type='submit'>Request</button>
+                
 
             </form>
+            {success && <p>{typeof success === 'string' ? success : JSON.stringify(success)}</p>}
+            {error && <p>{typeof error==='string' ? error:JSON.stringify(error)}</p>}
+            <Link style={{textDecoration:'none',color:'black',marginLeft:'-50rem'}} to='/members'>Prev</Link>
+        </div>
         </div>
 
     )

@@ -1,7 +1,13 @@
 import React ,{useEffect,useState} from 'react'
-import Logout from './logout.js'
+
 import '../account.css'
 import Family from './family.js'
+import Order from './order.js'
+import Payment from './payment.js'
+import Saving from './savings.js'
+import Security from './security.js'
+import Address from './addresses.js'
+import My from './my.js'
 
 
 
@@ -43,7 +49,7 @@ const Profile=()=>{
             }
         };
     
-        getProfile(); // Invoke the function
+        getProfile(); 
     }, []);
     
     
@@ -51,22 +57,30 @@ const Profile=()=>{
 
 
     return(
-        <div className='container'>
+        <div className='main-content'>
+            <div className='pop'>
+            <h1>Your Account</h1>
             <div className='pro'>
-            {error && <p>{typeof error==='string' ? error:JSON.stringify(error)}</p>}
-            <div className='top'>
+           
             
-            <p>{data.id}</p>
-            <p>{data.name}</p>
-            <p>{data.email}</p>
-            <p>{data.role}<i class="fa-solid fa-user"></i></p>
-            
-            </div>
-            <Logout/>
+           
 
-            </div>
-            <div className='my-profile'>
+           
+           
+                <Order/>
                 <Family/>
+                <Payment/>
+                <Saving/>
+                <Security/>
+                <Address/>
+                <My/>
+            
+            </div>
+            <div>
+            {error && <p>{typeof error==='string' ? error:JSON.stringify(error)}</p>}
+            <p>{data.email}</p>
+            <p>{data.role}</p>
+            </div>
             </div>
         </div>
     )

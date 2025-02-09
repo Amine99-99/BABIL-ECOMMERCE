@@ -20,7 +20,7 @@ export const useProductArray = () => {
   });
 
 
-  const store_1 = Array.isArray(productsA)
+const store_1 = Array.isArray(productsA)
     ? productsA.map((product) => ({
         ...product,
         fob: createUnique(product, 'store_1'),
@@ -601,6 +601,7 @@ export const store_2 = updatedProducts.map((product)=>({
   ...product,
   fob:createUnique(product,'store_2')
 }))
+
 
 
 

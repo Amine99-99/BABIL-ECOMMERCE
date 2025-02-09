@@ -1,15 +1,24 @@
 import React , {useState} from 'react' 
+import { useNavigate,Outlet } from 'react-router-dom'
 
-import Account from './account.js'
 import Logo from './title.js'
 import Search from './search.js'
-import Cart from'./cart.js'
+import Categories from './categories.js'
+import Trending from './trending.js'
+
+import HeaderTwo from './header2.js'
+import Account from './account.js'
+import Cart from './cart.js'
 import useCart from '../hooks/useCart.js'
-import { useNavigate } from 'react-router-dom'
+
+
+
+
 
 
 const Home =()=>{
-  const {toggleCart} = useCart()
+  const  {toggleCart} = useCart()
+
   const navigate=useNavigate()
   const [searchTerm,setSearchTerm] = useState('')
   const handleChange=(e)=>{
@@ -21,21 +30,35 @@ const Home =()=>{
 
   
   return(
-
-
+      <>
+    
       <div className='home-header'>
         
         <Logo/>
         <Search onChange={handleChange} onClick={handleResult} value={searchTerm}/>
+        <Account/>
+        <Cart/>
           
 
-             <Cart/>
+             
 
         
        
-        <Account/>
+        
       
-        <button className='cart_' onClick={toggleCart}><i class="fas fa-shopping-cart"></i></button></div>
+        <button className='log' onClick={()=>toggleCart()}><i class="fas fa-shopping-cart"></i></button>
+        </div>
+        
+        <div className='header_2'><HeaderTwo/></div>
+      
+        <div className='sidebar'><Categories/></div>
+        <div><Trending/></div>
+      
+        
+        <Outlet/>
+        
+        </>
+        
 
         
    

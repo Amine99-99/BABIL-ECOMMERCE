@@ -5,9 +5,10 @@ import { Link } from 'react-router-dom';
 
 const Trending = () => {
   const { addItem } = useCart();
-  const { store_1} = useProduct();
-  const [products, setProducts] = useState(store_1.slice(0, 5));
-  const [currentIdx, setCurrentIdx] = useState(5);
+  const { store_1=[],store_3} = useProduct();
+  const [products, setProducts] = useState(store_1.slice(0, 4));
+  const [currentIdx, setCurrentIdx] = useState(4);
+
   
 
   const handleAdd = (product) => {
@@ -16,16 +17,18 @@ const Trending = () => {
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      const nextIdx = (currentIdx + 5) % store_1.length;
+      const nextIdx = (currentIdx + 4) % store_1.length;
       setProducts(store_1.slice(currentIdx, nextIdx === 0 ? store_1.length : nextIdx));
       setCurrentIdx(nextIdx);
     }, 6000);
     
     return () => clearInterval(intervalId);
   }, [currentIdx,store_1]);
+ 
 
   return (
-    <div>
+    <div className='main-content'>
+    
       <h6 style={{color:'grey',fontSize:20}}>TRENDING PRODUCTS</h6>
       <div className='trending'>
         {products.map((product) => (
@@ -38,10 +41,12 @@ const Trending = () => {
                 <h2>{product.quantity}</h2>
               </div>
             </Link>
-            <button onClick={() => handleAdd(product)}>Add to the cart</button>
+            <button style={{backgroundColor:'black',color:'white',width:200,padding:10,margin:5,marginLeft:30,borderRadius:5}} onClick={() => handleAdd(product)}>Add to the cart</button>
           </div>
         ))}
       </div>
+      
+
 
      
     </div>

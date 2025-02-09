@@ -28,7 +28,7 @@
       display: block; 
   }
   .close-btn {
-      background-color: red;
+      background-color: #DC143C;
       color: white;
       border: none;
       padding: 10px;
@@ -36,7 +36,7 @@
       border-radius:5px;
   }
   .close-btn:hover {
-      background-color: darkred;
+      background-color: black;
   }
 
   

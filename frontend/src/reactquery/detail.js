@@ -4,12 +4,13 @@ import useProduct from '../hooks/useProduct.js';
 import useCart from '../hooks/useCart.js';
 
 const Detail = () => {
-  const { store_2} = useProduct();
+  const { store_2,removeProduct} = useProduct();
   const { addItem } = useCart();
-  const { category, fob } = useParams();
+  const { category,fob} = useParams();
 
   const handleAdd = (product) => {
     addItem(product);
+    removeProduct(product)
     
   }
   const catData = store_2.filter((item) => item.category === category);
@@ -18,6 +19,7 @@ const Detail = () => {
   if (!product) return <div>Product not found</div>;
 
   return (
+    <div className='main-content'>
     <div className='detail'>
       <div className='e'>
       
@@ -38,6 +40,7 @@ const Detail = () => {
       
       <button style={{width:200,height:40,backgroundColor:'black',color:'white',fontStyle:'bold'}} onClick={() => handleAdd(product)}>Add</button>
       </div>
+    </div>
     </div>
   );
 };

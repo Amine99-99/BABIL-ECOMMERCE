@@ -3,14 +3,114 @@
     height:200px;
 }
 .side{
-    width : 20%;
+    width : 10vw;
     border:1px solid grey;
+    height:80vh
 }
 .my{
-    width:75%;
+    width:40vw;
     border:1px solid grey;
     position:absolute;
     left:25%;
-    top:5px;
+    padding:1rem;
+    
+    height:80vh;
+}
+.pro {
+   
+    height: 100%;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8rem;
+    padding: 2rem;
+    margin: 1rem 3rem;
+}
+
+
+.member{
+    display:flex;
+    flex-direction:row;
+
+}
+.btn-req,.btn-r{
+    background-color: black; 
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    width:100px;
+    border-radius:5px
+
+}
+.req-pg{
+    width:60vw;
+    height:80vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    border :3px solid black;
+    margin-left:6.5rem;
+    border-radius:5px;
+}
+.req{
+    display:flex;
+    width:20vw;
+    height:30vh;
+    border-radius:5px;
+    background-color:gray;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    gap :1rem;
+    border:1px solid grey;
+    margin-left:-1rem;
+    
+}
+.btn-pro{
+    width:25rem;
+    height :8rem;
+    background-color:beige;
+    border:1px solid grey;
+    border-radius:5px;
+
+
+}
+.des{
+    color:grey;
+    font-size:13px;
+
+  }
+.btn-pro:hover{
+    background-color:white;
+}
+
+.fas{
+    display:flex;
+    flex-direction:wrap;
+}
+.fa {
+    width:5rem;
+
+}
+.coming{
+    width:100%;
     height:100%;
+    background: radial-gradient(circle , gold 1%, black 80%);
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items:center;
+
+
+}
+.load{
+    color: black;
+}
+.pop{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
 }

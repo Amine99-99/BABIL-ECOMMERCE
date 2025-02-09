@@ -23,6 +23,8 @@ class User(db.Model,UserMixin):
     
     avatar_hash = db.Column(db.String(32))
 
+    request_role= db.relationship('RoleRequest',backref='user')
+
     @property
     def password(self):
         raise AttributeError('password is not a readable attribute')
@@ -60,6 +62,8 @@ class Role(db.Model):
     permissions = db.Column(db.Integer)
     default=db.Column(db.Boolean,default=False)
     users = db.relationship('User',backref='role',lazy='dynamic')
+    requests=db.relationship('RoleRequest',backref='role')
+  
 
     def __init__(self,**kwargs):
         super(Role,self).__init__(**kwargs)
@@ -104,15 +108,21 @@ class Role(db.Model):
 class RoleRequest(db.Model):
     __tablename__ = 'role_requests'
     id =db.Column(db.Integer,primary_key=True)
-    user_id = db.Column(db.Integer,db.ForeignKey('user.id'))
-    role_id = db.Column(db.Integer,db.ForeignKey('role.id'))
-    requested_role = db.Column(db.String(60),nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), index=True)
+    role_id = db.Column(db.Integer, db.ForeignKey('role.id'), index=True)
+    requested_role = db.Column(db.String(60),nullable=False,unique=False)
     status = db.Column(db.String(32),default='pending')
     is_seen = db.Column(db.Boolean, default=False)  
     timestamp = db.Column(db.DateTime,default = datetime.utcnow)
     updated_at = db.Column(db.DateTime,onupdate = datetime.utcnow)
-    users = db.relationship('User',backref='role_requests')
-    roles =  db.relationship('Role',backref='role_requests')
+
+
+   
+
+
+    
+  
+    
 
 
 class Offer(db.Model):
